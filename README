@@ -1,0 +1,37 @@
+Zarek Lazowski
+
+USER INFO:
+This program is a shell that can run interactively or can process a list
+of given commands. 
+
+An example list of batch commands is given.
+
+This was created in a virtual Ubuntu x86 environment, and is not intended
+to run outside of a unix-based system. 
+
+INSTRUCTIONS:
+Provided makefile creates mush objects and executable by calling:
+make
+make mush
+
+Execute program from command line:
+$DIR/mush
+
+Alternatively, call mush with a list of commands to do batch processing:
+$DIR/mush commands
+
+Only supports command lines up to 512 chars in length.
+
+Weird behaviour regarding "ls Makefile mush > test":
+      Command fails with either "corrupted size vs. prev_size" or realloc 
+	  claims the pointer isn't already alloc-ed. It will work, but failure
+	  seems random. I've confirmed the pointer exists before realloc is 
+	  called by stepping through. As for the corrupted size issue, research 
+	  says it happens when overwriting alloc-ed memory, but I had trouble 
+	  finding where it occurs. My original parseline didn't have this 
+	  issue, and a majority of the code was reused except for removing 
+	  excess mallocs and adding a line to deal with the memory leak. 
+	  I even tried adding these back to no avail.
+
+      I came back to really sus out why it isn't working, and it runs fine in
+      valgrind.

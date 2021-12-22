@@ -1,0 +1,3 @@
+/bin/echo -n Hello,
+echo world
+
